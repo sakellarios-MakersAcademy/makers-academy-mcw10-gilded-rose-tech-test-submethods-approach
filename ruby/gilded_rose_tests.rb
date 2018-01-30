@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), 'gilded_rose')
+require File.join(File.dirname(__FILE__), 'lib/gilded_rose')
 require 'test/unit'
 
 class TestUntitled < Test::Unit::TestCase

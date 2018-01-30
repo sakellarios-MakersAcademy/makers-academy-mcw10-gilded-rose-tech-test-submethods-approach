@@ -3,3 +3,4 @@
 /perl6/lib/.precomp
 /elixir/_build/
 .DS_Store
+coverage

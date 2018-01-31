@@ -7,11 +7,11 @@ describe GildedRose do
 
     context 'normal items' do
 
-      it 'does not change the name' do
-        items = [Item.new('foo', 0, 0)]
-        GildedRose.new(items).update_quality
-        expect(items[0].name).to eq('foo')
-      end
+      # it 'does not change the name' do
+      #   items = [Item.new('foo', 0, 0)]
+      #   GildedRose.new(items).update_quality
+      #   expect(items[0].name).to eq('foo')
+      # end
 
       it 'decreases quality of normal items by 1 each day' do
         items = [Item.new('foo', 1, 1)]
@@ -27,7 +27,7 @@ describe GildedRose do
 
       it "decreases quality of normal twice as fast once sell by date has passed" do
         items = [Item.new("foo", 0, 2)]
-        GildedRose.new(items).update_quality()
+        GildedRose.new(items).normal_item
         expect(items[0].quality).to eq(0)
       end
 

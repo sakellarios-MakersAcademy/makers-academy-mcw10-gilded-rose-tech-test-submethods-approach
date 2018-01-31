@@ -9,7 +9,11 @@ class GildedRose
 
   def normal_item
     @items.each do |item|
+      if item.sell_in > 0
         item.quality -= 1
+      else
+        item.quality -=2
+      end
     end
   end
 

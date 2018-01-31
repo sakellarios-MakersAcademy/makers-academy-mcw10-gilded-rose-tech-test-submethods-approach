@@ -30,26 +30,23 @@ class GildedRose
     def aged_brie(item)
       if item.quality <MAXIMUM_QUALITY
         item.quality += 1
-        item.sell_in -= 1
       else
         item.quality = MAXIMUM_QUALITY
-        item.sell_in -= 1
       end
+      item.sell_in -= 1
     end
 
     def backstage_pass(item)
-
-          if item.sell_in.between?(6,10)
-            item.quality += 2
-          end
-          if item.sell_in.between?(1,5)
-            item.quality += 3
-          end
-          if item.sell_in <= MINIMUM_QUALITY
-            item.quality = MINIMUM_QUALITY
-          end
-          item.sell_in -=1
-
+      if item.sell_in.between?(6,10)
+        item.quality += 2
+      end
+      if item.sell_in.between?(1,5)
+        item.quality += 3
+      end
+      if item.sell_in <= MINIMUM_QUALITY
+        item.quality = MINIMUM_QUALITY
+      end
+      item.sell_in -=1
     end
 
     def sulfuras(item)

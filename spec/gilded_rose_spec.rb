@@ -35,6 +35,33 @@ describe GildedRose do
       end
     end
 
+
+    context 'conjured items' do
+      it 'decreases quality of conjured items by 2 each day' do
+        items = [Item.new('Conjured', 1, 4)]
+        GildedRose.new(items).update_quality
+        expect(items[0].quality).to eq(2)
+      end
+
+      it 'does not decrease quality of conjured items past 0' do
+        items = [Item.new('Conjured', 1, 0)]
+        GildedRose.new(items).update_quality
+        expect(items[0].quality).to eq(0)
+      end
+
+      it 'decreases quality of conjured twice as fast once sell by date has passed' do
+        items = [Item.new('Conjured', 0, 8)]
+        GildedRose.new(items).update_quality
+        expect(items[0].quality).to eq(4)
+      end
+
+      it 'decreases the sell in date by 1 for conjured items' do
+        items = [Item.new('Conjured', 1, 1)]
+        GildedRose.new(items).update_quality
+        expect(items[0].sell_in).to eq(0)
+      end
+    end
+
     context 'Aged Brie' do
       it "increases quality of 'Aged Brie' by 1 each day" do
         items = [Item.new('Aged Brie', 1, 1)]

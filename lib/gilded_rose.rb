@@ -9,9 +9,10 @@ class GildedRose
   def update_quality
     @items.each do |item|
       case item.name
-      when 'Aged Brie' then aged_brie(item)
-      when 'Backstage passes to a TAFKAL80ETC concert' then backstage_pass(item)
-      when 'Sulfuras, Hand of Ragnaros' then sulfuras(item)
+      when "Aged Brie" then aged_brie(item)
+      when "Backstage passes to a TAFKAL80ETC concert" then backstage_pass(item)
+      when "Sulfuras, Hand of Ragnaros"
+      when "Conjured" then conjured(item)
       else
         normal_item(item)
       end
@@ -42,6 +43,15 @@ private
     item.quality = MINIMUM_QUALITY if item.sell_in <= MINIMUM_QUALITY
     item.sell_in -= 1
   end
+
+  def conjured(item)
+    if item.quality > MINIMUM_QUALITY
+      item.quality -= item.sell_in > 0 ? 2 : 4
+      item.sell_in -= 1
+    end
+  end
+
+
 
   def sulfuras(item); end
 end

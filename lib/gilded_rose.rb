@@ -7,14 +7,17 @@ class GildedRose
     @items = items
   end
 
-  def normal_item()
+
+def normal_item()
     @items.each do |item|
-      if item.sell_in > 0
-        item.quality -= 1
-      else
-        item.quality -=2
+      if item.quality > 0
+        if item.sell_in > 0
+          item.quality -= 1
+        else
+          item.quality -=2
+        end
+        item.sell_in -= 1
       end
-      item.sell_in -= 1
     end
   end
 
@@ -33,7 +36,7 @@ class GildedRose
     end
   end
 
-  def backstage_pass
+  def backstage_pass()
     @items.each do |item|
       if item.name == "Backstage passes to a TAFKAL80ETC concert"
         if item.sell_in.between?(6,10)
@@ -45,12 +48,19 @@ class GildedRose
         if item.sell_in <= 0
           item.quality = 0
         end
+        item.sell_in -=1
       end
+
 
     end
   end
 
-
+def sulfuras()
+  @items.each do |item|
+  if item.name == "Sulfuras"
+  end
+  end
+end
 
 
 # ======= OLD CODE ======

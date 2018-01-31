@@ -20,10 +20,10 @@ describe GildedRose do
         expect(items[0].quality).to eq(0)
       end
 
-# NOT DONE
+# DONE
       it "does not decrease quality of normal items past 0" do
         items = [Item.new("foo", 1, 0)]
-        GildedRose.new(items).update_quality()
+        GildedRose.new(items).normal_item()
         expect(items[0].quality).to eq(0)
       end
 
@@ -34,7 +34,7 @@ describe GildedRose do
         expect(items[0].quality).to eq(0)
       end
 
-# NOT DONE
+# DONE
       it "decreases the sell in date by 1 for normal items" do
         items = [Item.new("foo", 1, 1)]
         GildedRose.new(items).normal_item()
@@ -81,17 +81,17 @@ describe GildedRose do
         expect(items[0].quality).to eq(8)
       end
 
-# NOT DONE
+# DONE
       it "changes quality of backstage pass to 0 once sell by date is 0" do
         items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 0, 5)]
-        GildedRose.new(items).update_quality()
+        GildedRose.new(items).backstage_pass()
         expect(items[0].quality).to eq(0)
       end
 
-# NOT DONE
+# DONE
       it "decreases sell in date by 1 of backstage pass" do
         items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 5, 5)]
-        GildedRose.new(items).update_quality()
+        GildedRose.new(items).backstage_pass()
         expect(items[0].sell_in).to eq(4)
       end
     end
@@ -101,14 +101,14 @@ describe GildedRose do
 # NOT DONE
       it "does not change the quality of 'Sulfuras'" do
         items = [Item.new("Sulfuras, Hand of Ragnaros", 5, 5)]
-        GildedRose.new(items).update_quality()
+        GildedRose.new(items).sulfuras()
         expect(items[0].quality).to eq(5)
       end
 
 # NOT DONE
       it "does not change the sell in date of 'Sulfuras'" do
         items = [Item.new("Sulfuras, Hand of Ragnaros", 5, 5)]
-        GildedRose.new(items).update_quality()
+        GildedRose.new(items).sulfuras()
         expect(items[0].sell_in).to eq(5)
       end
     end

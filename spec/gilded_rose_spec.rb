@@ -15,7 +15,7 @@ describe GildedRose do
 
       it 'decreases quality of normal items by 1 each day' do
         items = [Item.new('foo', 1, 1)]
-        GildedRose.new(items).normal_item
+        GildedRose.new(items).normal_item()
         expect(items[0].quality).to eq(0)
       end
 
@@ -27,13 +27,13 @@ describe GildedRose do
 
       it "decreases quality of normal twice as fast once sell by date has passed" do
         items = [Item.new("foo", 0, 2)]
-        GildedRose.new(items).normal_item
+        GildedRose.new(items).normal_item()
         expect(items[0].quality).to eq(0)
       end
 
       it "decreases the sell in date by 1 for normal items" do
         items = [Item.new("foo", 1, 1)]
-        GildedRose.new(items).update_quality()
+        GildedRose.new(items).normal_item()
         expect(items[0].sell_in).to eq(0)
       end
     end

@@ -53,7 +53,7 @@ describe GildedRose do
 # DONE
       it "does not increase quality of 'Aged Brie' past 50" do
         items = [Item.new("Aged Brie", 1, 50)]
-        GildedRose.new(items).update_quality()
+        GildedRose.new(items).aged_brie()
         expect(items[0].quality).to eq(50)
       end
 
@@ -98,14 +98,14 @@ describe GildedRose do
 
     context "Sulfuras" do
 
-# NOT DONE
+# DONE
       it "does not change the quality of 'Sulfuras'" do
         items = [Item.new("Sulfuras, Hand of Ragnaros", 5, 5)]
         GildedRose.new(items).sulfuras()
         expect(items[0].quality).to eq(5)
       end
 
-# NOT DONE
+# DONE
       it "does not change the sell in date of 'Sulfuras'" do
         items = [Item.new("Sulfuras, Hand of Ragnaros", 5, 5)]
         GildedRose.new(items).sulfuras()

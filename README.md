@@ -40,4 +40,4 @@ After ensuring that all the test were passing and that I had full test coverage 
 
 ## Future Development
 - Create more test (e.g. items cannot start with quality more than 50)
-- Refactor more and try utilising polymorphism
+- Refactor more and try utilising polymorphism1

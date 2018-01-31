@@ -7,6 +7,13 @@ class GildedRose
     @items = items
   end
 
+  def normal_item
+    @items.each do |item|
+        item.quality -= 1
+    end
+  end
+
+
 
 
   def update_quality()
